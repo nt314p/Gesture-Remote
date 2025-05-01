@@ -204,7 +204,11 @@ def build_file(command_stem, source_file):
     print(f"Compiling {source_file}")
     result = subprocess.run(command, text=True, capture_output=True)
     
-    output = result.stdout.split(PREAMBLE_END)[1] # remove preamble
+    if PREAMBLE_END in result.stdout:
+        output = result.stdout.split(PREAMBLE_END)[1] # remove preamble
+    else:
+        output = result.stdout
+        
     print(output) 
     print(result.stderr)
 
@@ -212,9 +216,6 @@ def build_file(command_stem, source_file):
     dependencies = f.read().splitlines()
     f.close()
     return dependencies
-
-# clean()
-# exit()
 
 sources = get_sources()
 

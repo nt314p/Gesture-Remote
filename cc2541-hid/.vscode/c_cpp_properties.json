@@ -15,6 +15,7 @@
                 "__IAR_SYSTEMS_ICC__",
                 "CC2541",
                 "HAL_UART_ISR=2",
+                
                 "__sfr=",
                 "__no_init=",
                 "__interrupt=",
