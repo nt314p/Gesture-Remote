@@ -181,7 +181,7 @@ static uint8 default_scanData[] =
 };
 
 // Advertising data
-static uint8 advData[] =
+static uint8 advertisingData[] =
 {
   // flags
   0x02,   // length of this data
@@ -350,7 +350,7 @@ void HidKbdMouse_Init( uint8 task_id )
     GAPRole_SetParameter( GAPROLE_ADVERT_ENABLED, sizeof( uint8 ), &initial_advertising_enable );
     GAPRole_SetParameter( GAPROLE_ADVERT_OFF_TIME, sizeof( uint16 ), &gapRole_AdvertOffTime );
 
-    GAPRole_SetParameter( GAPROLE_ADVERT_DATA, sizeof( advData ), advData );
+    GAPRole_SetParameter( GAPROLE_ADVERT_DATA, sizeof( advertisingData ), advertisingData );
 
     //name change - 21/12/2014
     osal_snv_read(SNV_ID_DEVICE_NAME_CRC, 1, device_name_crc);

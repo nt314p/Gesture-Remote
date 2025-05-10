@@ -201,6 +201,8 @@ def build_file(command_stem, source_file):
        "--dependencies", 
        dependency_file ]
 
+    # TODO: skip building file if the .r51 object file is more recent than the source
+
     print(f"Compiling {source_file}")
     result = subprocess.run(command, text=True, capture_output=True)
     
